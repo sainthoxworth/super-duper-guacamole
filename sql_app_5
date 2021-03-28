@@ -1,0 +1,5 @@
+SELECT username, emailaddress FROM
+ i_users JOIN i_user_login_logs ON 
+ i_users.userId = i_user_login_logs.userId
+GROUP BY username
+HAVING COUNT(DISTINCT i_user_login_logs.userId) > 3);
